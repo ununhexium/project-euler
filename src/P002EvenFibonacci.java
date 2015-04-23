@@ -1,5 +1,7 @@
 import net.lab0.tools.math.MyMath;
 
+
+
 public class P002EvenFibonacci
 {
     

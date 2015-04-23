@@ -3,6 +3,7 @@
 	<name>Euler</name>
 	<comment></comment>
 	<projects>
+		<project>java-tools</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

@@ -17,21 +17,22 @@ public class P008LargestProductInASeries
         + "84580156166097919133875499200524063689912560717606" + "05886116467109405077541002256983155200055935729725"
         + "71636269561882670428252483600823257530420752963450";
         
-        int max = 0;
-        for (int i = 0; i < source.length() - 5; ++i)
+        long max = 0;
+        int span = 13;
+        for (int i = 0; i < source.length() - span; ++i)
         {
-            String sub = source.substring(i, i + 5);
+            String sub = source.substring(i, i + span);
             
             List<Integer> ints = new ArrayList<>();
-            for (int j = 0; j < 5; ++j)
+            for (int j = 0; j < span; ++j)
             {
                 ints.add(Integer.parseInt(sub.substring(j, j + 1)));
             }
             
-            int current = 1;
+            long current = 1;
             for (int k : ints)
             {
-                current *= k;
+                current *= (long)k;
             }
             
             if (current > max)
