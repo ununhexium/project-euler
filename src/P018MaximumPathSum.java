@@ -28,11 +28,10 @@ public class P018MaximumPathSum
         System.out.println();
         System.out.println();
         System.out.println("Tree");
-        displayTreeMax(root);
-        
+        displayTreeMax(root, "0000");
         
         System.out.println();
-//        System.out.println("MAX= "+root.getLeafMaxTotal());
+        // System.out.println("MAX= "+root.getLeafMaxTotal());
     }
     
     public static P018Node loadTree(URL resource)
@@ -118,9 +117,10 @@ public class P018MaximumPathSum
         }
     }
     
-    private static void displayTreeMax(P018Node root)
+    public static void displayTreeMax(P018Node root, String format)
     {
-        NumberFormat numberFormat = new DecimalFormat("0000");
+        long max = 0;
+        NumberFormat numberFormat = new DecimalFormat(format);
         LinkedList<P018Node> nodesToDisplay = new LinkedList<>();
         nodesToDisplay.addLast(root);
         int currentDepth = root.getDepth();
@@ -141,7 +141,13 @@ public class P018MaximumPathSum
                     nodesToDisplay.addLast(n);
                 }
             }
+            if (current.maxTotal > max)
+            {
+                max = current.maxTotal;
+            }
             System.out.print(numberFormat.format(current.maxTotal) + " ");
         }
+        System.out.println();
+        System.out.println(max);
     }
 }

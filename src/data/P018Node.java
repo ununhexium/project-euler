@@ -7,9 +7,9 @@ public class P018Node
 {
     public boolean        mark     = false;
     public List<P018Node> parents  = new ArrayList<>();
-    public int            content;
+    public long            content;
     public List<P018Node> children = new ArrayList<>();
-    public int            maxTotal = 0;
+    public long            maxTotal = 0;
     
     public P018Node(int content)
     {
