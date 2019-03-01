@@ -1,7 +1,7 @@
 package net.lab0.euler
 
-import net.lab0.math.Numbers
 import net.lab0.math.Primes
+import net.lab0.math.Primes.primes
 import net.lab0.math.digitsCountBase10
 import net.lab0.math.power
 import net.lab0.math.replaceDigitAt
@@ -26,7 +26,7 @@ object E51 {
       familySizeTarget: Int,
       maxPrimeSize: Long = Long.MAX_VALUE
   ): Long {
-    val answer = Numbers.primes.dropWhile {
+    val answer = primes.dropWhile {
       it < 10
     }.takeWhile {
       it <= maxPrimeSize
