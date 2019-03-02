@@ -1,5 +1,7 @@
 package net.lab0.math
 
+import java.math.BigInteger
+
 object Numbers {
   val oddNumbers = sequence {
     var n = 1L
@@ -48,3 +50,21 @@ fun Long.digitsCountBase10(): Long {
   } while (n > 0L)
   return power
 }
+
+fun Long.factorial(): BigInteger {
+  if (this < 0) throw IllegalArgumentException("Don't know how to compute factorials on negative numbers")
+
+  var res = BigInteger.ONE
+  var current = this
+  while (current > 0) {
+    res *= BigInteger.valueOf(current)
+    current--
+  }
+  return res
+}
+
+/**
+ * Computes the number of [combinations](https://en.wikipedia.org/wiki/Combination) for `n` and `r`
+ */
+fun combinations(n: Long, r: Long) =
+    n.factorial() / (r.factorial() * (n - r).factorial())
